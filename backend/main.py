@@ -54,7 +54,11 @@ ALLOWED_FILES = {"index.html", "style.css", "app.js"}
 SESSION_MAX_AGE_HOURS = int(os.getenv("SESSION_MAX_AGE_HOURS", "24"))
 
 # Comma-separated list of allowed origins, e.g. "https://myapp.com,http://localhost:3000".
-CORS_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", "*").split(",") if o.strip()]
+CORS_ORIGINS = [
+    o.strip() for o in os.getenv(
+        "CORS_ORIGINS", 
+        "*,https://appmentor-frontend.vercel.app"
+    ).split(",") if
 
 # Generated code is untrusted. By default previews are served in a CSP sandbox so they
 # cannot touch this app's origin. A sandboxed page has an opaque origin, so the browser's
