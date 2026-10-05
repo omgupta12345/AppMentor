@@ -190,7 +190,10 @@ input[type=text]{width:100%;padding:10px 12px;border:1.5px solid var(--line);bor
 'use strict';
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 // Same-origin when served by FastAPI; otherwise talk to the API on :8000.
-const API=(()=>{const l=['localhost','127.0.0.1',''].includes(location.hostname);return l&&location.port!=='8000'?'http://127.0.0.1:8000':'';})();
+const API = (() => {
+  const l = ['localhost', '127.0.0.1', ''].includes(location.hostname);
+  return l ? 'http://127.0.0.1:8000' : 'https://appmentor-production.up.railway.app';
+})();
 const fresh=()=>({sid:null,questions:[],answers:[],understanding:null,plan:null,files:null,byVer:{},version:null,versions:[],explanation:null,learning:null,file:'index.html',busy:false});
 const S=Object.assign(fresh(),{idea:'',exp:'beginner'});
 
