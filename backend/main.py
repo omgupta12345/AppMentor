@@ -9,7 +9,7 @@ from typing import Any, AsyncGenerator, Dict, List, Optional
 
 try:
     from contextlib import aclosing  # Python 3.10+
-except ImportError:  # pragma: no cover - fallback for Python 3.8/3.9
+except ImportError: 
     class aclosing:  # noqa: N801
         def __init__(self, thing):
             self.thing = thing
